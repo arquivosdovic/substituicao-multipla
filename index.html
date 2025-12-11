@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Substituição Múltipla de Texto</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Ferramenta de Substituição Múltipla</h1>
+
+    <div class="container">
+      <section class="substituicoes">
+        <h2>Definir Regras de Substituição</h2>
+        <div id="regras-container">
+          <div class="regra-item">
+            <input
+              type="text"
+              class="termo-antigo"
+              placeholder="Termo a Substituir (Antigo)"
+            />
+            <input type="text" class="termo-novo" placeholder="Novo Termo" />
+            <button class="remover-regra" onclick="removerRegra(this)">
+              Remover
+            </button>
+          </div>
+        </div>
+
+        <button id="adicionar-regra">Adicionar Nova Regra</button>
+
+        <div class="import-export-area">
+          <h3>Gerenciar Lista</h3>
+          <button id="exportar-regras">Exportar Regras (.json)</button>
+
+          <label for="importar-input" id="importar-label">
+            Importar Regras (.json)
+          </label>
+          <input
+            type="file"
+            id="importar-input"
+            accept=".json"
+            style="display: none"
+          />
+        </div>
+      </section>
+
+      <section class="processamento">
+        <h2>Área de Texto</h2>
+        <textarea
+          id="texto-principal"
+          rows="10"
+          placeholder="Insira seu texto aqui..."
+        ></textarea>
+        <button id="executar-substituicao">Executar Substituição</button>
+      </section>
+
+      <section class="resultado">
+        <h2>Resultado</h2>
+        <textarea
+          id="texto-resultado"
+          rows="10"
+          readonly
+          placeholder="O resultado aparecerá aqui..."
+        ></textarea>
+        <button id="copiar-resultado" onclick="copiarResultado()">
+          Copiar Resultado
+        </button>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
