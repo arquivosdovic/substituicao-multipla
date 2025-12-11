@@ -1,7 +1,66 @@
+/* ===========================
+   VARIÁVEIS DE TEMA
+   =========================== */
+:root {
+    --bg: #f4f4f9;
+    --bg-section: #fff;
+    --text: #000;
+    --border: #ccc;
+    --shadow: rgba(0, 0, 0, 0.1);
+
+    --btn-primary: #007bff;
+    --btn-primary-hover: #0056b3;
+
+    --btn-remove: #dc3545;
+    --btn-remove-hover: #c82333;
+
+    --btn-copy: #28a745;
+    --btn-copy-hover: #1e7e34;
+
+    --btn-export: #ffc107;
+    --btn-export-hover: #e0a800;
+
+    --btn-import: #17a2b8;
+    --btn-import-hover: #138496;
+}
+
+/* ===========================
+   MODO ESCURO AUTOMÁTICO
+   =========================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1f1f1f;
+        --bg-section: #2a2a2a;
+        --text: #f5f5f5;
+        --border: #555;
+        --shadow: rgba(255, 255, 255, 0.06);
+
+        --btn-primary: #4a8cff;
+        --btn-primary-hover: #3b6fcc;
+
+        --btn-remove: #ff5c67;
+        --btn-remove-hover: #e04852;
+
+        --btn-copy: #3ccf7a;
+        --btn-copy-hover: #2ca45f;
+
+        --btn-export: #e7b84c;
+        --btn-export-hover: #c99c38;
+
+        --btn-import: #42c2d6;
+        --btn-import-hover: #339aac;
+    }
+}
+
+/* ===========================
+   ESTILOS USANDO VARIÁVEIS
+   =========================== */
+
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: #f4f4f9;
+    background-color: var(--bg);
+    color: var(--text);
 }
 
 .container {
@@ -11,14 +70,14 @@ body {
 }
 
 section {
-    background-color: #fff;
+    background-color: var(--bg-section);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 300px; /* Faz com que as seções se ajustem */
+    box-shadow: 0 2px 4px var(--shadow);
+    flex: 1 1 300px;
 }
 
-/* Estilo para as regras de substituição */
+/* Regras */
 .regra-item {
     display: flex;
     gap: 10px;
@@ -28,20 +87,19 @@ section {
 
 .termo-antigo, .termo-novo, #texto-principal, #texto-resultado {
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     border-radius: 4px;
     width: 100%;
     box-sizing: border-box;
-}
-
-.termo-antigo, .termo-novo {
-    flex: 1;
+    background: var(--bg-section);
+    color: var(--text);
 }
 
 #texto-principal, #texto-resultado {
     resize: vertical;
 }
 
+/* Botões */
 button {
     padding: 10px 15px;
     border: none;
@@ -49,63 +107,54 @@ button {
     cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s;
-}
-
-#executar-substituicao, #adicionar-regra {
-    background-color: #007bff;
     color: white;
 }
 
+/* Botões específicos */
+#executar-substituicao, #adicionar-regra {
+    background-color: var(--btn-primary);
+}
 #executar-substituicao:hover, #adicionar-regra:hover {
-    background-color: #0056b3;
+    background-color: var(--btn-primary-hover);
 }
 
 .remover-regra {
-    background-color: #dc3545;
-    color: white;
+    background-color: var(--btn-remove);
     padding: 5px 10px;
     margin-top: 0;
     width: auto;
 }
-
 .remover-regra:hover {
-    background-color: #c82333;
+    background-color: var(--btn-remove-hover);
 }
 
 #copiar-resultado {
-    background-color: #28a745;
-    color: white;
+    background-color: var(--btn-copy);
 }
-
 #copiar-resultado:hover {
-    background-color: #1e7e34;
+    background-color: var(--btn-copy-hover);
 }
 
-/* Estilo para a nova seção de Importar/Exportar */
+/* Importar/Exportar */
 .import-export-area {
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px solid #ddd;
-}
-
-.import-export-area h3 {
-    margin-bottom: 10px;
+    border-top: 1px solid var(--border);
 }
 
 #exportar-regras {
-    background-color: #ffc107; /* Amarelo */
+    background-color: var(--btn-export);
     color: #333;
     width: 100%;
     margin-bottom: 10px;
 }
-
 #exportar-regras:hover {
-    background-color: #e0a800;
+    background-color: var(--btn-export-hover);
 }
 
 #importar-label {
     display: inline-block;
-    background-color: #17a2b8; /* Ciano/Azul claro */
+    background-color: var(--btn-import);
     color: white;
     padding: 10px 15px;
     border-radius: 4px;
@@ -114,7 +163,6 @@ button {
     text-align: center;
     box-sizing: border-box;
 }
-
 #importar-label:hover {
-    background-color: #138496;
+    background-color: var(--btn-import-hover);
 }
